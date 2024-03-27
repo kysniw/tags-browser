@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Tags Browser",
+  "name": "Browse Tags from StackOverflow",
   "icons": [
     {
       "src": "favicon.ico",
