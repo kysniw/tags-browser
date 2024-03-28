@@ -12,7 +12,9 @@ root.render(
   <React.StrictMode>
     <NextUIProvider>
       <TagsProvider>
-        <App />
+        <main className="dark text-foreground bg-background">
+          <App />
+        </main>
       </TagsProvider>
     </NextUIProvider>
   </React.StrictMode>

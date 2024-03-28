@@ -4,6 +4,7 @@ export type TagResponseProps = {
   error_message?: string;
   error_name?: string;
   items?: TagProps[];
+  total?: number;
 };
 
 export type TagProps = {

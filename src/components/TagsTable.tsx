@@ -30,7 +30,7 @@ const TagsTable = () => {
   };
 
   return (
-    <div className="max-w-[40rem] w-full h-full py-10">
+    <div className="max-w-[40rem] w-full h-full py-10 px-2">
       {error && <p className="text-danger font-semibold">{error}</p>}
       <Table
         isHeaderSticky
@@ -39,7 +39,7 @@ const TagsTable = () => {
         sortDescriptor={sortDescriptor}
         classNames={{
           base: "h-full",
-          wrapper: "h-full",
+          wrapper: "max-h-full bg-opacity-50",
         }}
         topContentPlacement="outside"
         topContent={<PageSizeSelect />}
