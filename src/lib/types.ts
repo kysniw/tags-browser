@@ -20,4 +20,5 @@ export type QueryParamsProps = {
   order: "desc" | "asc";
   pagesize: 10 | 25 | 50 | 100;
   page: number;
+  inname?: string;
 };

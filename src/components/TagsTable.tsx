@@ -1,3 +1,4 @@
+import React from "react";
 import { Spinner } from "@nextui-org/spinner";
 import {
   Table,
@@ -9,10 +10,9 @@ import {
   getKeyValue,
   SortDescriptor,
 } from "@nextui-org/table";
-import React from "react";
 import { useTagsContext } from "../context/TagsContext";
-import PageSizeSelect from "./PageSizeSelect";
 import PaginationBar from "./PaginationBar";
+import TableTopContent from "./TableTopContent";
 
 const TagsTable = () => {
   const { tags, queryParams, handleChangeParams, isLoading } = useTagsContext();
@@ -26,12 +26,11 @@ const TagsTable = () => {
   const handleSortClick = (sortData: SortDescriptor) => {
     const sort = sortData.column === "count" ? "popular" : "name";
     const order = sortData.direction === "ascending" ? "asc" : "desc";
-    handleChangeParams({ ...queryParams, sort, order });
+    handleChangeParams({ ...queryParams, sort, order, page: 1 });
   };
 
   return (
     <div className="max-w-[40rem] w-full h-full py-10 px-2">
-      {error && <p className="text-danger font-semibold">{error}</p>}
       <Table
         isHeaderSticky
         aria-label="Table with tags"
@@ -42,7 +41,7 @@ const TagsTable = () => {
           wrapper: "max-h-full bg-opacity-50",
         }}
         topContentPlacement="outside"
-        topContent={<PageSizeSelect />}
+        topContent={<TableTopContent />}
         bottomContentPlacement="outside"
         bottomContent={<PaginationBar />}
       >
@@ -57,8 +56,14 @@ const TagsTable = () => {
         <TableBody
           items={tags?.items || []}
           isLoading={isLoading}
-          loadingContent={<Spinner />}
-          emptyContent={"No tags to display."}
+          loadingContent={<Spinner color="warning" />}
+          emptyContent={
+            error ? (
+              <p className="text-danger font-semibold">{error}</p>
+            ) : (
+              "No tags to display"
+            )
+          }
         >
           {(item) => (
             <TableRow key={item.name}>

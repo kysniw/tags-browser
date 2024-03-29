@@ -42,6 +42,9 @@ const TagsProvider = ({ children }: { children: React.ReactNode }) => {
     if (queryParams.page) {
       params.set("page", queryParams.page.toString());
     }
+    if (queryParams.inname) {
+      params.set("inname", queryParams.inname);
+    }
 
     return params.toString();
   }, [queryParams]);

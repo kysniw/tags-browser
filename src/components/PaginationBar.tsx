@@ -14,7 +14,9 @@ const PaginationBar = () => {
   return (
     <div className="flex justify-center items-center">
       <Pagination
+        color="warning"
         showControls
+        isCompact
         page={queryParams.page}
         total={total}
         onChange={onPaginationChange}

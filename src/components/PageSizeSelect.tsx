@@ -11,31 +11,29 @@ const PageSizeSelect = () => {
   };
 
   return (
-    <div className="flex w-full justify-end">
-      <Select
-        label="Tags on page"
-        selectedKeys={[queryParams.pagesize.toString()]}
-        fullWidth={false}
-        onChange={handleSelectionChange}
-        classNames={{
-          base: "bg-black bg-opacity-50 rounded-xl p-2 w-fit",
-          mainWrapper: "w-32",
-        }}
-      >
-        <SelectItem key={10} value={10}>
-          10
-        </SelectItem>
-        <SelectItem key={25} value={25}>
-          25
-        </SelectItem>
-        <SelectItem key={50} value={50}>
-          50
-        </SelectItem>
-        <SelectItem key={100} value={100}>
-          100
-        </SelectItem>
-      </Select>
-    </div>
+    <Select
+      label="Tags on page"
+      selectedKeys={[queryParams.pagesize.toString()]}
+      fullWidth={false}
+      onChange={handleSelectionChange}
+      classNames={{
+        base: "w-fit",
+        mainWrapper: "w-32",
+      }}
+    >
+      <SelectItem key={10} value={10}>
+        10
+      </SelectItem>
+      <SelectItem key={25} value={25}>
+        25
+      </SelectItem>
+      <SelectItem key={50} value={50}>
+        50
+      </SelectItem>
+      <SelectItem key={100} value={100}>
+        100
+      </SelectItem>
+    </Select>
   );
 };
 
